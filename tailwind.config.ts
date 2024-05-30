@@ -1,16 +1,15 @@
-import forms from "@tailwindcss/forms"
-import defaultTheme from "tailwindcss/defaultTheme"
-import { Config } from 'tailwindcss'
+import type { Config } from "tailwindcss"
 import colors from 'tailwindcss/colors'
-/** @type {import('tailwindcss').Config} */
-export default {
-  darkMode:["class"],
-  content: [ 
+import forms from "@tailwindcss/forms"
+
+const config = {
+  darkMode: ["class"],
+  content: [
     "./vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php",
     "./storage/framework/views/*.php",
     "./resources/views/**/*.blade.php",
     "./resources/js/**/*.tsx",
-  ],
+	],
   prefix: "",
   theme: {
     container: {
@@ -81,4 +80,6 @@ export default {
     },
   },
   plugins: [forms, require("tailwindcss-animate")],
-} as Config
+} satisfies Config
+
+export default config
