@@ -3,7 +3,7 @@ import ApplicationLogo from '@/Components/ApplicationLogo';
 import Dropdown from '@/Components/Dropdown';
 import NavLink from '@/Components/NavLink';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
-import { Link } from '@inertiajs/react';
+import { Link, router } from '@inertiajs/react';
 import { User } from '@/types';
 import { Button } from "@/Components/ui/button"
 import {
@@ -25,7 +25,11 @@ import { Toaster } from "@/Components/ui/toaster"
 import { logoPng } from '@/lib/assets'
 
 export default function Authenticated({ user, header, routeParent = null, routeChild = null, children }: PropsWithChildren<{ 
-    user: User, 
+    // user: User, 
+    user?: {
+      name:string,
+      email:string
+    } | null | undefined,
     header?: ReactNode, 
     routeParent?:string|null, 
     routeChild?:string|null 
@@ -81,7 +85,7 @@ export default function Authenticated({ user, header, routeParent = null, routeC
                                                 type="button"
                                                 className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150"
                                             >
-                                                {user.name}
+                                                {user?.name}
 
                                                 <svg
                                                     className="ms-2 -me-0.5 h-4 w-4"
@@ -101,9 +105,18 @@ export default function Authenticated({ user, header, routeParent = null, routeC
 
                                     <Dropdown.Content>
                                         <Dropdown.Link href={route('profile.edit')}>Profile</Dropdown.Link>
-                                        <Dropdown.Link href={route('logout')} method="post" as="button">
+                                        {/* <Dropdown.Link onClick={() => {
+                                          localStorage.removeItem('auth_token')
+                                        }} href={route('login')}>
                                             Log Out
-                                        </Dropdown.Link>
+                                        </Dropdown.Link> */}
+                                        <Button variant="ghost" onClick={() => {
+                                          localStorage.removeItem('auth_token')
+                                          
+                                          router.get('/')
+                                        }}>
+                                          Log out
+                                        </Button>
                                     </Dropdown.Content>
                                 </Dropdown>
                             </div>
@@ -145,9 +158,9 @@ export default function Authenticated({ user, header, routeParent = null, routeC
                     <div className="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">
                         <div className="px-4">
                             <div className="font-medium text-base text-gray-800 dark:text-gray-200">
-                                {user.name}
+                                {user?.name}
                             </div>
-                            <div className="font-medium text-sm text-gray-500">{user.email}</div>
+                            <div className="font-medium text-sm text-gray-500">{user?.email}</div>
                         </div>
 
                         <div className="mt-3 space-y-1">
