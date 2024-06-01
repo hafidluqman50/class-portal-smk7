@@ -1,4 +1,3 @@
-import { FormEventHandler } from 'react';
 import { Button } from "@/Components/ui/button"
 import {
   Card,
@@ -10,19 +9,37 @@ import {
 } from "@/Components/ui/card"
 import { Input } from "@/Components/ui/input"
 import { Label } from "@/Components/ui/label"
-import { Head, Link, useForm, usePage } from '@inertiajs/react';
+import { httpServer } from "@/lib/server";
+import { Head, Link, usePage, router } from '@inertiajs/react';
+import axios, { AxiosError } from "axios";
+import { useForm } from 'react-hook-form';
 
 export default function LoginForm() {
   
-  const { data, setData, post, processing, errors, reset } = useForm({
-      username: '',
-      password: '',
-  });
+  const { register, handleSubmit } = useForm()
   
-  const submit: FormEventHandler = (e) => {
-      e.preventDefault();
-
-      post(route('login'));
+  // const { data, setData, post, processing, errors, reset } = useForm({
+  //     username: '',
+  //     password: '',
+  // });
+  
+  const submit = async(data: any) => {
+    try {
+      const { data: result } = await axios.post('http://localhost:5000/api/super-admin/login', {
+        email: data.email,
+        password: data.password
+      })
+      
+      
+      localStorage.setItem('auth_token', result.data.token)
+      
+      router.get('/administrator/dashboard')
+    } catch(error) {
+      if(error as AxiosError) {
+        alert((error as AxiosError<any>)?.response?.data?.message)
+        console.log((error as AxiosError<any>)?.response?.data?.message)
+      }
+    }
   };
   
   return (
@@ -36,15 +53,15 @@ export default function LoginForm() {
             Masukkan username dan password!
           </CardDescription>
         </CardHeader>
-        <form onSubmit={submit}>
+        <form onSubmit={handleSubmit(submit)}>
           <CardContent className="grid gap-4">
             <div className="grid gap-2">
-              <Label htmlFor="username">Username</Label>
-              <Input id="username" type="text" onChange={(e) => setData('username', e.target.value)} required />
+              <Label htmlFor="username">Email</Label>
+              <Input id="email" type="email" {...register('email')} required />
             </div>
             <div className="grid gap-2">
               <Label htmlFor="password">Password</Label>
-              <Input id="password" type="password" onChange={(e) => setData('password', e.target.value)} required />
+              <Input id="password" type="password" {...register('password')} required />
             </div>
           </CardContent>
           <CardFooter>
