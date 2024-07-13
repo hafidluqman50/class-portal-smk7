@@ -48,7 +48,7 @@ Route::group(['prefix' => '/administrator'], function() {
     Route::get('/class/create', [AdministratorClassController::class, 'create'])->name('administrator.class.create');
     Route::get('/user', [AdministratorUserController::class, 'index'])->name('administrator.user');
     Route::get('/user/create', [AdministratorUserController::class, 'create'])->name('administrator.user.create');
-    Route::get('/journal', [AdministratorJournalController::class, 'create'])->name('administrator.journal');
+    Route::get('/journal', [AdministratorJournalController::class, 'index'])->name('administrator.journal');
 });
 
 Route::get('/bk/journal', [JournalController::class, 'index'])->name('bk.journal.main');
