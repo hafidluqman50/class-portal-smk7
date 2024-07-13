@@ -1,12 +1,12 @@
 <?php
 
-use App\Http\Controllers\Administrator\JournalController as AdministratorJournal;
-use App\Http\Controllers\Administrator\ClassController;
-use App\Http\Controllers\Administrator\StudentController;
-use App\Http\Controllers\Administrator\SubjectController;
-use App\Http\Controllers\Administrator\UserController;
+use App\Http\Controllers\Administrator\DashboardController as AdministratorDashboardController;
+use App\Http\Controllers\Administrator\JournalController as AdministratorJournalController;
+use App\Http\Controllers\Administrator\ClassController as AdministratorClassController;
+use App\Http\Controllers\Administrator\StudentController as AdministratorStudentController;
+use App\Http\Controllers\Administrator\SubjectController as AdministratorSubjectController;
+use App\Http\Controllers\Administrator\UserController as AdministratorUserController;
 
-use App\Http\Controllers\Bk\JournalController;
 use App\Http\Controllers\Bk\JournalController;
 
 use App\Http\Controllers\Bk\JournalController as BkJournalController;
@@ -38,19 +38,18 @@ use Inertia\Inertia;
 //     ]);
 // });
 
-Route::get('/administrator/dashboard', function () {
-    return Inertia::render('Administrator/Dashboard');
-})->name('administrator.dashboard');
-
-Route::get('/administrator/student', [StudentController::class, 'index'])->name('administrator.student');
-Route::get('/administrator/student/create', [StudentController::class, 'create'])->name('administrator.student.create');
-Route::get('/administrator/subject', [SubjectController::class, 'index'])->name('administrator.subject');
-Route::get('/administrator/subject/create', [SubjectController::class, 'create'])->name('administrator.subject.create');
-Route::get('/administrator/class', [ClassController::class, 'index'])->name('administrator.class');
-Route::get('/administrator/class/create', [ClassController::class, 'create'])->name('administrator.class.create');
-Route::get('/administrator/user', [UserController::class, 'index'])->name('administrator.user');
-Route::get('/administrator/user/create', [UserController::class, 'create'])->name('administrator.user.create');
-Route::get('/administrator/journal', [AdministratorJournal::class, 'index'])->name('administrator.journal');
+Route::group(['prefix' => '/administrator'], function() {
+    Route::get('/dashboard', [AdministratorDashboardController::class, 'index'])->name('administrator.dashboard');
+    Route::get('/student', [AdministratorStudentController::class, 'index'])->name('administrator.student');
+    Route::get('/student/create', [AdministratorStudentController::class, 'create'])->name('administrator.student.create');
+    Route::get('/subject', [AdministratorSubjectController::class, 'index'])->name('administrator.subject');
+    Route::get('/subject/create', [AdministratorSubjectController::class, 'create'])->name('administrator.subject.create');
+    Route::get('/class', [AdministratorClassController::class, 'index'])->name('administrator.class');
+    Route::get('/class/create', [AdministratorClassController::class, 'create'])->name('administrator.class.create');
+    Route::get('/user', [AdministratorUserController::class, 'index'])->name('administrator.user');
+    Route::get('/user/create', [AdministratorUserController::class, 'create'])->name('administrator.user.create');
+    Route::get('/journal', [AdministratorJournalController::class, 'create'])->name('administrator.journal');
+});
 
 Route::get('/bk/journal', [JournalController::class, 'index'])->name('bk.journal.main');
 
