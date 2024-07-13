@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Bk\JournalController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -28,6 +29,8 @@ use Inertia\Inertia;
 Route::get('/administrator/dashboard', function () {
     return Inertia::render('Administrator/Dashboard');
 })->name('administrator.dashboard');
+
+Route::get('/bk/journal', [JournalController::class, 'index'])->name('bk.journal.main');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
