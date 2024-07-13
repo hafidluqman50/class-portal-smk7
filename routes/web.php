@@ -3,6 +3,7 @@
 use App\Http\Controllers\Administrator\ClassController;
 use App\Http\Controllers\Administrator\StudentController;
 use App\Http\Controllers\Administrator\SubjectController;
+use App\Http\Controllers\Administrator\UserController;
 use App\Http\Controllers\Bk\JournalController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
@@ -39,6 +40,8 @@ Route::get('/administrator/subject', [SubjectController::class, 'index'])->name(
 Route::get('/administrator/subject/create', [SubjectController::class, 'create'])->name('administrator.subject.create');
 Route::get('/administrator/class', [ClassController::class, 'index'])->name('administrator.class');
 Route::get('/administrator/class/create', [ClassController::class, 'create'])->name('administrator.class.create');
+Route::get('/administrator/user', [UserController::class, 'index'])->name('administrator.user');
+Route::get('/administrator/user/create', [UserController::class, 'create'])->name('administrator.user.create');
 
 Route::get('/bk/journal', [JournalController::class, 'index'])->name('bk.journal.main');
 
