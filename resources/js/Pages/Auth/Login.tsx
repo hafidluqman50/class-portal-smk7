@@ -25,7 +25,7 @@ export default function LoginForm() {
   
   const submit = async(data: any) => {
     try {
-      const { data: result } = await axios.post('http://localhost:5000/api/super-admin/login', {
+      const { data: result } = await axios.post('https://backend-bcr.fly.dev/api/super-admin/login', {
         email: data.email,
         password: data.password
       })
@@ -33,7 +33,8 @@ export default function LoginForm() {
       
       localStorage.setItem('auth_token', result.data.token)
       
-      router.get('/administrator/dashboard')
+      router.get('/bk/journal')
+      // route('bk.journal.main')
     } catch(error) {
       if(error as AxiosError) {
         alert((error as AxiosError<any>)?.response?.data?.message)
