@@ -1535,6 +1535,21 @@ body {
   list-style-type: none;
 }
 
+.columns-6 {
+  -moz-columns: 6;
+       columns: 6;
+}
+
+.columns-10 {
+  -moz-columns: 10;
+       columns: 10;
+}
+
+.columns-12 {
+  -moz-columns: 12;
+       columns: 12;
+}
+
 .grid-cols-1 {
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }
