@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Administrator\StudentController;
 use App\Http\Controllers\Bk\JournalController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
@@ -29,6 +30,9 @@ use Inertia\Inertia;
 Route::get('/administrator/dashboard', function () {
     return Inertia::render('Administrator/Dashboard');
 })->name('administrator.dashboard');
+
+Route::get('/administrator/student', [StudentController::class, 'index'])->name('administrator.student');
+Route::get('/administrator/student/create', [StudentController::class, 'create'])->name('administrator.student.create');
 
 Route::get('/bk/journal', [JournalController::class, 'index'])->name('bk.journal.main');
 
