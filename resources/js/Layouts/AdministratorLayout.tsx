@@ -61,6 +61,9 @@ export default function Authenticated({ user, header, routeParent = null, routeC
                                 <NavLink href={route('administrator.class')} active={route().current('administrator.class')}>
                                     Manajemen Kelas
                                 </NavLink>
+                                <NavLink href={route('administrator.user')} active={route().current('administrator.user')}>
+                                    Manajemen Pengguna
+                                </NavLink>
                                 <NavLink href='#' active={routeParent == 'data-master'}>
                                     <DropdownMenu>
                                       <DropdownMenuTrigger>
