@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\Administrator\StudentController;
-use App\Http\Controllers\Bk\JournalController;
+use App\Http\Controllers\Bk\JournalController as BkJournalController;
+use App\Http\Controllers\Bk\DashboardController as BkDashboardController;
+use App\Http\Controllers\Bk\AttendanceController as BkAttendanceController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -34,7 +36,13 @@ Route::get('/administrator/dashboard', function () {
 Route::get('/administrator/student', [StudentController::class, 'index'])->name('administrator.student');
 Route::get('/administrator/student/create', [StudentController::class, 'create'])->name('administrator.student.create');
 
-Route::get('/bk/journal', [JournalController::class, 'index'])->name('bk.journal.main');
+Route::group(['prefix' => '/bk'], function() {
+    Route::get('/dashboard', [BkDashboardController::class, 'index'])->name('bk.dashboard.main');
+    Route::get('/journals', [BkJournalController::class, 'index'])->name('bk.journal.main');
+    Route::get('/attendances', [BkAttendanceController::class, 'index'])->name('bk.attendances.main');
+});
+
+>>>>>>> feat/data-jurnal-page-bk-waka
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
