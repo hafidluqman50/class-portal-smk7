@@ -1555,6 +1555,21 @@ body {
   list-style-type: none;
 }
 
+.columns-6 {
+  -moz-columns: 6;
+       columns: 6;
+}
+
+.columns-10 {
+  -moz-columns: 10;
+       columns: 10;
+}
+
+.columns-12 {
+  -moz-columns: 12;
+       columns: 12;
+}
+
 .grid-cols-1 {
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }
@@ -1630,6 +1645,7 @@ body {
 .gap-6 {
   gap: 1.5rem;
 }
+
 
 .gap-\[2\.75rem\] {
   gap: 2.75rem;
@@ -2032,6 +2048,7 @@ body {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+
 .bg-\[\#337ab7\] {
   --tw-bg-opacity: 1;
   background-color: rgb(51 122 183 / var(--tw-bg-opacity));
@@ -2079,7 +2096,7 @@ body {
   --tw-bg-opacity: 1;
   background-color: rgb(14 165 233 / var(--tw-bg-opacity));
 }
-
+  
 .from-gray-700 {
   --tw-gradient-from: #374151 var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(55 65 81 / 0) var(--tw-gradient-to-position);

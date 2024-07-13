@@ -1,9 +1,12 @@
 <?php
 
+use App\Http\Controllers\Administrator\JournalController as AdministratorJournal;
 use App\Http\Controllers\Administrator\ClassController;
 use App\Http\Controllers\Administrator\StudentController;
 use App\Http\Controllers\Administrator\SubjectController;
 use App\Http\Controllers\Administrator\UserController;
+
+use App\Http\Controllers\Bk\JournalController;
 use App\Http\Controllers\Bk\JournalController;
 
 use App\Http\Controllers\Bk\JournalController as BkJournalController;
@@ -47,6 +50,7 @@ Route::get('/administrator/class', [ClassController::class, 'index'])->name('adm
 Route::get('/administrator/class/create', [ClassController::class, 'create'])->name('administrator.class.create');
 Route::get('/administrator/user', [UserController::class, 'index'])->name('administrator.user');
 Route::get('/administrator/user/create', [UserController::class, 'create'])->name('administrator.user.create');
+Route::get('/administrator/journal', [AdministratorJournal::class, 'index'])->name('administrator.journal');
 
 Route::get('/bk/journal', [JournalController::class, 'index'])->name('bk.journal.main');
 
