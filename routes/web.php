@@ -4,6 +4,11 @@ use App\Http\Controllers\Administrator\ClassController;
 use App\Http\Controllers\Administrator\StudentController;
 use App\Http\Controllers\Administrator\SubjectController;
 use App\Http\Controllers\Bk\JournalController;
+
+use App\Http\Controllers\Bk\JournalController as BkJournalController;
+use App\Http\Controllers\Bk\DashboardController as BkDashboardController;
+use App\Http\Controllers\Bk\AttendanceController as BkAttendanceController;
+
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -40,7 +45,11 @@ Route::get('/administrator/subject/create', [SubjectController::class, 'create']
 Route::get('/administrator/class', [ClassController::class, 'index'])->name('administrator.class');
 Route::get('/administrator/class/create', [ClassController::class, 'create'])->name('administrator.class.create');
 
-Route::get('/bk/journal', [JournalController::class, 'index'])->name('bk.journal.main');
+Route::group(['prefix' => '/bk'], function() {
+    Route::get('/dashboard', [BkDashboardController::class, 'index'])->name('bk.dashboard.main');
+    Route::get('/journals', [BkJournalController::class, 'index'])->name('bk.journal.main');
+    Route::get('/attendances', [BkAttendanceController::class, 'index'])->name('bk.attendances.main');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
