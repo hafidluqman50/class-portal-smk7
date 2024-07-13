@@ -6,6 +6,7 @@ import { httpServer } from '@/lib/server';
 import InputLabel from '@/Components/InputLabel';
 import { Input } from '@/Components/ui/input';
 import { Button } from '@/Components/ui/button';
+import { attendancesImg } from '@/lib/assets';
 
 export default function JournalPage() {
     
@@ -30,30 +31,14 @@ export default function JournalPage() {
     return (
         <BkLayout
             user={!isLoading ? data : null}
-            header={<h2 className="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">Data Jurnal</h2>}
+            header={<h2 className="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">Data Presensi</h2>}
         >
-            <Head title="Data Jurnal" />
+            <Head title="Data Presensi" />
 
             <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg p-5">
-                      <div className="flex">
-                        <div className="w-[50%] border-r-2 p-2">
-                          <InputLabel value='Tanggal Awal' className='font-bold mb-3' />
-                          <Input type='date' />
-                        </div>
-                        <div className='w-[50%] p-2'>
-                          <InputLabel value='Tanggal Akhir' className='font-bold mb-3' />
-                          <Input type='date' />
-                        </div>
-                      </div>
-                      <hr />
-                      <Button className='bg-sky-600 mt-3'>Cari</Button>
-                      <div className='flex gap-3'>
-                        <Button className='bg-sky-600 mt-3'>Tambah Jurnal</Button>
-                        <Button className='bg-sky-600 mt-3'>Cetak Jurnal</Button>
-                      </div>
-                      <p className='mt-3'>Masukkan Tanggal Awal dan Tanggal Akhir Untuk menampilkan data</p>
+                      <img src={ attendancesImg } />
                     </div>
                 </div>
             </div>
