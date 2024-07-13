@@ -7,6 +7,8 @@ use App\Http\Controllers\Administrator\SubjectController;
 use App\Http\Controllers\Administrator\UserController;
 
 use App\Http\Controllers\Bk\JournalController;
+use App\Http\Controllers\Bk\JournalController;
+
 use App\Http\Controllers\Bk\JournalController as BkJournalController;
 use App\Http\Controllers\Bk\DashboardController as BkDashboardController;
 use App\Http\Controllers\Bk\AttendanceController as BkAttendanceController;
@@ -49,6 +51,8 @@ Route::get('/administrator/class/create', [ClassController::class, 'create'])->n
 Route::get('/administrator/user', [UserController::class, 'index'])->name('administrator.user');
 Route::get('/administrator/user/create', [UserController::class, 'create'])->name('administrator.user.create');
 Route::get('/administrator/journal', [AdministratorJournal::class, 'index'])->name('administrator.journal');
+
+Route::get('/bk/journal', [JournalController::class, 'index'])->name('bk.journal.main');
 
 Route::group(['prefix' => '/bk'], function() {
     Route::get('/dashboard', [BkDashboardController::class, 'index'])->name('bk.dashboard.main');
