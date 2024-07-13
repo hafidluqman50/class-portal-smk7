@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Administrator\StudentController;
+use App\Http\Controllers\Administrator\SubjectController;
 use App\Http\Controllers\Bk\JournalController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
@@ -33,6 +34,8 @@ Route::get('/administrator/dashboard', function () {
 
 Route::get('/administrator/student', [StudentController::class, 'index'])->name('administrator.student');
 Route::get('/administrator/student/create', [StudentController::class, 'create'])->name('administrator.student.create');
+Route::get('/administrator/subject', [SubjectController::class, 'index'])->name('administrator.subject');
+Route::get('/administrator/subject/create', [SubjectController::class, 'create'])->name('administrator.subject.create');
 
 Route::get('/bk/journal', [JournalController::class, 'index'])->name('bk.journal.main');
 
