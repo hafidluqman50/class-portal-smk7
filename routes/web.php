@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Administrator\ClassController;
 use App\Http\Controllers\Administrator\StudentController;
 use App\Http\Controllers\Administrator\SubjectController;
 use App\Http\Controllers\Bk\JournalController;
@@ -41,6 +42,8 @@ Route::get('/administrator/student', [StudentController::class, 'index'])->name(
 Route::get('/administrator/student/create', [StudentController::class, 'create'])->name('administrator.student.create');
 Route::get('/administrator/subject', [SubjectController::class, 'index'])->name('administrator.subject');
 Route::get('/administrator/subject/create', [SubjectController::class, 'create'])->name('administrator.subject.create');
+Route::get('/administrator/class', [ClassController::class, 'index'])->name('administrator.class');
+Route::get('/administrator/class/create', [ClassController::class, 'create'])->name('administrator.class.create');
 
 Route::group(['prefix' => '/bk'], function() {
     Route::get('/dashboard', [BkDashboardController::class, 'index'])->name('bk.dashboard.main');
