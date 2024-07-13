@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Administrator\DashboardController as AdministratorDashboardController;
+use App\Http\Controllers\Administrator\AttedanceController as AdministratorAttedanceController;
 use App\Http\Controllers\Administrator\JournalController as AdministratorJournalController;
 use App\Http\Controllers\Administrator\ClassController as AdministratorClassController;
 use App\Http\Controllers\Administrator\StudentController as AdministratorStudentController;
@@ -49,6 +50,7 @@ Route::group(['prefix' => '/administrator'], function() {
     Route::get('/user', [AdministratorUserController::class, 'index'])->name('administrator.user');
     Route::get('/user/create', [AdministratorUserController::class, 'create'])->name('administrator.user.create');
     Route::get('/journal', [AdministratorJournalController::class, 'index'])->name('administrator.journal');
+    Route::get('/attedance', [AdministratorAttedanceController::class, 'index'])->name('administrator.attedance');
 });
 
 Route::get('/bk/journal', [JournalController::class, 'index'])->name('bk.journal.main');
