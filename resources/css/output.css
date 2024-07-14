@@ -1990,6 +1990,55 @@ body {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.bg-\[\#337ab7\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(51 122 183 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#f0ad4e\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(240 173 78 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#5cb85c\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(92 184 92 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#d9534f\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(217 83 79 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#ffff\] {
+  background-color: #ffff;
+}
+
+.bg-\[\#fff\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+  
+.bg-sky-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(56 189 248 / var(--tw-bg-opacity));
+}
+
+.bg-sky-900 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(12 74 110 / var(--tw-bg-opacity));
+}
+
+.bg-sky-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(3 105 161 / var(--tw-bg-opacity));
+}
+
+.bg-sky-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(14 165 233 / var(--tw-bg-opacity));
+}
+
 .from-gray-700 {
   --tw-gradient-from: #374151 var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(55 65 81 / 0) var(--tw-gradient-to-position);

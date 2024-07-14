@@ -8,11 +8,13 @@ use App\Http\Controllers\Administrator\StudentController as AdministratorStudent
 use App\Http\Controllers\Administrator\SubjectController as AdministratorSubjectController;
 use App\Http\Controllers\Administrator\UserController as AdministratorUserController;
 
-use App\Http\Controllers\Bk\JournalController;
-
 use App\Http\Controllers\Bk\JournalController as BkJournalController;
 use App\Http\Controllers\Bk\DashboardController as BkDashboardController;
 use App\Http\Controllers\Bk\AttendanceController as BkAttendanceController;
+
+use App\Http\Controllers\ClassSecretary\JournalController as ClassSecretaryJournalController;
+use App\Http\Controllers\ClassSecretary\DashboardController as ClassSecretaryDashboardController;
+use App\Http\Controllers\ClassSecretary\AttendanceController as ClassSecretaryAttendanceController;
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
@@ -53,12 +55,16 @@ Route::group(['prefix' => '/administrator'], function() {
     Route::get('/attedance', [AdministratorAttedanceController::class, 'index'])->name('administrator.attedance');
 });
 
-Route::get('/bk/journal', [JournalController::class, 'index'])->name('bk.journal.main');
-
 Route::group(['prefix' => '/bk'], function() {
     Route::get('/dashboard', [BkDashboardController::class, 'index'])->name('bk.dashboard.main');
     Route::get('/journals', [BkJournalController::class, 'index'])->name('bk.journal.main');
     Route::get('/attendances', [BkAttendanceController::class, 'index'])->name('bk.attendances.main');
+});
+
+Route::group(['prefix' => '/class-secretary'], function() {
+    Route::get('/dashboard', [ClassSecretaryDashboardController::class, 'index'])->name('class-secretary.dashboard.main');
+    Route::get('/journals', [ClassSecretaryJournalController::class, 'index'])->name('class-secretary.journal.main');
+    Route::get('/attendances', [ClassSecretaryAttendanceController::class, 'index'])->name('class-secretary.attendances.main');
 });
 
 Route::middleware('auth')->group(function () {
