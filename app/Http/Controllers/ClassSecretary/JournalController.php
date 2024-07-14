@@ -13,4 +13,9 @@ class JournalController extends Controller
     {
         return Inertia::render('ClassSecretary/Journal/Main');
     }
+    
+    public function create(): Response
+    {
+        return Inertia::render('ClassSecretary/Journal/Create');
+    }
 }

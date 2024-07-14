@@ -64,7 +64,10 @@ Route::group(['prefix' => '/bk'], function() {
 Route::group(['prefix' => '/class-secretary'], function() {
     Route::get('/dashboard', [ClassSecretaryDashboardController::class, 'index'])->name('class-secretary.dashboard.main');
     Route::get('/journals', [ClassSecretaryJournalController::class, 'index'])->name('class-secretary.journal.main');
+    Route::get('/journals/create', [ClassSecretaryJournalController::class, 'create'])->name('class-secretary.journal.create');
     Route::get('/attendances', [ClassSecretaryAttendanceController::class, 'index'])->name('class-secretary.attendances.main');
+    Route::get('/attendances/create', [ClassSecretaryAttendanceController::class, 'create'])->name('class-secretary.attendances.create');
+    Route::get('/attendances/late-attendance', [ClassSecretaryAttendanceController::class, 'lateAttendance'])->name('class-secretary.attendances.late-attendance');
 });
 
 Route::middleware('auth')->group(function () {

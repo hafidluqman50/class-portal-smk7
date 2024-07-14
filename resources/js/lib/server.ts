@@ -2,7 +2,7 @@ import { router } from '@inertiajs/react'
 import axios, { AxiosError, AxiosResponse, InternalAxiosRequestConfig } from 'axios'
 
 const httpServer = axios.create({
-  baseURL:`http://localhost:5000`
+  baseURL:`https://backend-bcr.fly.dev`
 })
 
 httpServer.interceptors.request.use(
@@ -34,7 +34,7 @@ httpServer.interceptors.response.use(
       
       localStorage.removeItem('auth_token')
       
-      router.get('/')
+      // router.get('/')
       
     } else {
       return Promise.reject(error)

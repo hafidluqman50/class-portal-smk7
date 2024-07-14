@@ -38,6 +38,8 @@ export default function JournalPage() {
             <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg p-5">
+                      <Button className="bg-sky-600 mb-3 mr-3"> Tambah Data Absen </Button>
+                      <Button className="bg-rose-600 mb-3"> Tambah Data Absen Telat </Button>
                       <img src={ attendancesImg } />
                     </div>
                 </div>

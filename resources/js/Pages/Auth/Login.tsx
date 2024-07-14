@@ -33,7 +33,7 @@ export default function LoginForm() {
       
       localStorage.setItem('auth_token', result.data.token)
       
-      router.get('/bk/journal')
+      router.get('/administrator/dashboard')
       // route('bk.journal.main')
     } catch(error) {
       if(error as AxiosError) {

@@ -13,4 +13,14 @@ class AttendanceController extends Controller
     {
         return Inertia::render('ClassSecretary/Attendance/Main');
     }
+    
+    public function create(): Response
+    {
+        return Inertia::render('ClassSecretary/Attendance/Create');
+    }
+    
+    public function lateAttendance(): Response
+    {
+        return Inertia::render('ClassSecretary/Attendance/LateAttendance');
+    }
 }
