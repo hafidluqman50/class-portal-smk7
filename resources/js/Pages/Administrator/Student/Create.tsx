@@ -9,8 +9,8 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { format } from "date-fns";
-import { Calendar } from "@/Components/ui/calendar";
-import { CalendarIcon } from "lucide-react";
+import { Calendar as CalendarInput } from "@/Components/ui/calendar";
+import { Calendar } from 'lucide-react';
 import { Input } from "@/Components/ui/input";
 import { Textarea } from "@/Components/ui/textarea";
 import { Button } from "@/Components/ui/button";
@@ -282,7 +282,7 @@ export default function StudentCreate() {
                                                                             dd/mm/yyyy
                                                                         </span>
                                                                     )}
-                                                                    <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
+                                                                    <Calendar className="ml-auto h-4 w-4 opacity-50" />
                                                                 </Button>
                                                             </FormControl>
                                                         </PopoverTrigger>
@@ -290,11 +290,8 @@ export default function StudentCreate() {
                                                             className="w-auto p-0"
                                                             align="start"
                                                         >
-                                                            <Calendar
+                                                            <CalendarInput
                                                                 mode="single"
-                                                                selected={
-                                                                    field.value
-                                                                }
                                                                 onSelect={
                                                                     field.onChange
                                                                 }
